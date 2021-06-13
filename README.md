@@ -9,7 +9,7 @@ Original Mod: https://www.nexusmods.com/valheim/mods/969
 **Code is a complete rewrite.**
 
 ## License
-Orginal source has no license.   
+Original source has no license.   
 JVL Version is released under: **GNU Affero General Public License v3.0**
 
 ### Atos Arrows JVL
