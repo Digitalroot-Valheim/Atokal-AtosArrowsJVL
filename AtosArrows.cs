@@ -9,8 +9,17 @@ using UnityEngine;
 
 namespace AtosArrows
 {
-  [BepInPlugin("com.bepinex.plugins.atosarrows", "AtosArrows", "0.7.0")]
+  /// <summary>
+  /// This is a port of AtosArrows to JVL
+  /// PR: https://github.com/Atokal/AtosArrows/pull/3
+  /// Assets belong to Atokal and are used with permission because of:
+  ///  - Asset use permission You are allowed to use the assets in this file without permission or crediting me. https://www.nexusmods.com/valheim/mods/969 (June 12, 2021)
+  /// Original Mod: https://www.nexusmods.com/valheim/mods/969
+  /// Code is a complete rewrite.
+  /// </summary>
+  [BepInPlugin("digitalroot.valheim.mods.atosarrows.jvl", "AtosArrowsJVL", "0.7.0")]
   [BepInDependency(Main.ModGuid)]
+  [BepInIncompatibility("com.bepinex.plugins.atosarrows")]
   public class AtosArrows : BaseUnityPlugin
   {
     [UsedImplicitly]
@@ -18,11 +27,12 @@ namespace AtosArrows
     {
       Jotunn.Logger.LogInfo("AtosArrows.Awake()");
       AssetBundle assetBundle = AssetUtils.LoadAssetBundle($"AtosArrows/atoarrows");
+#if DEBUG
       foreach (string assetName in assetBundle.GetAllAssetNames())
       {
 				Jotunn.Logger.LogInfo(assetName);
 			}
-			
+#endif     
 			_itemPrefabStoneArrow = assetBundle.LoadAsset<GameObject>("Assets/AtosArrows/Arrows/ArrowStone.prefab");
       _itemPrefabCoreArrow = assetBundle.LoadAsset<GameObject>("Assets/AtosArrows/Arrows/ArrowCore.prefab");
       _itemPrefabBoneArrow = assetBundle.LoadAsset<GameObject>("Assets/AtosArrows/Arrows/ArrowBone.prefab");
@@ -67,7 +77,7 @@ namespace AtosArrows
           {"item_atoarrow_aoepoison", "Exploding Poison Arrow"}, {"item_atoarrow_aoepoison_description", "An arrow loaded to the brim with Poison and Oozes. This rare arrow is great for poisoning a large group of enemies."},
           {"item_ato_firebomb", "Fire Bomb"}, {"item_ato_firebomb_description", "RND request from the Dwarf Hugo."},
           {"item_ato_icebomb", "Ice Bomb"}, {"item_ato_icebomb_description", "RND request from the Dwarf Hugo."},
-          {"item_xbow", "Cross Bow"}, {"item_xbow_description", "Ugly MF"},
+          {"item_xbow", "Cross Bow"}, {"item_xbow_description", "Ugly XBow"},
         }
       });
     }
