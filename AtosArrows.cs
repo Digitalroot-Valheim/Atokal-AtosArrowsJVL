@@ -5,6 +5,7 @@ using Jotunn.Configs;
 using Jotunn.Entities;
 using Jotunn.Managers;
 using Jotunn.Utils;
+using System.IO;
 using UnityEngine;
 
 namespace AtosArrows
@@ -17,7 +18,7 @@ namespace AtosArrows
   /// Original Mod: https://www.nexusmods.com/valheim/mods/969
   /// Code is a complete rewrite.
   /// </summary>
-  [BepInPlugin("digitalroot.valheim.mods.atosarrows.jvl", "AtosArrowsJVL", "0.7.0")]
+  [BepInPlugin("digitalroot.valheim.mods.atosarrows.jvl", "AtosArrowsJVL", "0.7.1")]
   [BepInDependency(Main.ModGuid)]
   [BepInIncompatibility("com.bepinex.plugins.atosarrows")]
   public class AtosArrows : BaseUnityPlugin
@@ -26,7 +27,18 @@ namespace AtosArrows
     private void Awake()
     {
       Jotunn.Logger.LogInfo("AtosArrows.Awake()");
-      AssetBundle assetBundle = AssetUtils.LoadAssetBundle($"AtosArrows/atoarrows");
+      Config.Bind("General", "NexusID", 1301, "Nexus mod ID for updates");
+      var assetFile = new FileInfo(Path.Combine(BepInEx.Paths.PluginPath, "AtosArrows", "atoarrows"));
+
+      if (!assetFile.Exists)
+      {
+        Jotunn.Logger.LogError($"Unable to find asset file 'atoarrows', please make sure 'atoarrows' and 'AtosArrows.dll' are in {assetFile.DirectoryName}");
+        Jotunn.Logger.LogError($"AtosArrowsJVL is not loaded.");
+        return;
+      }
+
+      AssetBundle assetBundle = AssetUtils.LoadAssetBundle(assetFile.FullName);
+
 #if DEBUG
       foreach (string assetName in assetBundle.GetAllAssetNames())
       {

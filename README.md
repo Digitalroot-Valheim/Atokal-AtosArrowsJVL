@@ -48,3 +48,13 @@ New Items:
 
 ## Thanks to 
 - <a href="https://github.com/Atokal" target="_blank">Atokal</a>
+
+## Change Log
+
+#### 0.7.1
+- Added Nexus Update Check support
+- Add better error logging for when plugin is not installed in the correct place.
+
+#### 0.7.0
+- Port to JVL
+
