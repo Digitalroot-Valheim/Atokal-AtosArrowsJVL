@@ -12,7 +12,7 @@ Original Mod: https://www.nexusmods.com/valheim/mods/969
 Original source has no license.   
 JVL Version is released under: **GNU Affero General Public License v3.0**
 
-### Atos Arrows JVL
+## Atos Arrows JVL
 Adds several new arrows into the game. Expands arrow progression for fighting tougher enemies! 
 
 New Items:
@@ -35,18 +35,23 @@ New Items:
 - Ice Bomb
 - Cross Bow
 
-#### Dependencies
+### Dependencies
 - <a href="https://valheim.thunderstore.io/package/denikson/BepInExPack_Valheim/"  target="_blank">BepInExPack Valheim</a>
 - <a href="https://github.com/Valheim-Modding/Jotunn" target="_blank">Jotunn (JVL)</a>
 
-#### Installation (manual)
+### Installation (manual)
 1. Download the latest release archive (zip) file.
 1. Extract the archive into &lt;Steam Location&gt;\steamapps\common\Valheim\BepInEx\plugins
 
-#### Configuration 
+### Configuration 
 - No need to configure.
 
-## Thanks to 
+### Issues/Questions/Bugs
+- Use the repo issues tab above.
+
+### Support Me @ https://www.buymeacoffee.com/digitalroot
+
+### Thanks to 
 - <a href="https://github.com/Atokal" target="_blank">Atokal</a>
 
 ## Change Log
