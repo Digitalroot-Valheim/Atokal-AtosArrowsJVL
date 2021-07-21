@@ -1,4 +1,6 @@
-﻿# Summary
+﻿[![Release Drafter](https://github.com/Digitalroot-Valheim/Atokal-AtosArrowsJVL/actions/workflows/drafter.yml/badge.svg)](https://github.com/Digitalroot-Valheim/Atokal-AtosArrowsJVL/actions/workflows/drafter.yml)
+
+# Summary
 This is a port of <a href="https://www.nexusmods.com/valheim/mods/969">AtosArrows</a> to JVL   
 PR: https://github.com/Atokal/AtosArrows/pull/3   
 Assets belong to <a href="https://github.com/Atokal" target="_blank">Atokal</a> and are used with permission because of:   
@@ -54,12 +56,4 @@ New Items:
 ### Thanks to 
 - <a href="https://github.com/Atokal" target="_blank">Atokal</a>
 
-## Change Log
-
-#### 0.7.1
-- Added Nexus Update Check support
-- Add better error logging for when plugin is not installed in the correct place.
-
-#### 0.7.0
-- Port to JVL
 
