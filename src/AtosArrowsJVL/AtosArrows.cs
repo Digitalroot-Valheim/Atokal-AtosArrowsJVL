@@ -8,7 +8,7 @@ using Jotunn.Utils;
 using System.IO;
 using UnityEngine;
 
-namespace AtosArrows
+namespace AtosArrowsJVL
 {
   /// <summary>
   /// This is a port of AtosArrows to JVL
@@ -28,11 +28,11 @@ namespace AtosArrows
     {
       Jotunn.Logger.LogInfo("AtosArrows.Awake()");
       Config.Bind("General", "NexusID", 1301, "Nexus mod ID for updates");
-      var assetFile = new FileInfo(Path.Combine(BepInEx.Paths.PluginPath, "AtosArrows", "atoarrows"));
+      var assetFile = new FileInfo(Path.Combine(BepInEx.Paths.PluginPath, "AtosArrowsJVL", "atoarrows"));
 
       if (!assetFile.Exists)
       {
-        Jotunn.Logger.LogError($"Unable to find asset file 'atoarrows', please make sure 'atoarrows' and 'AtosArrows.dll' are in {assetFile.DirectoryName}");
+        Jotunn.Logger.LogError($"Unable to find asset file 'atoarrows', please make sure 'atoarrows' and 'AtosArrowsJVL.dll' are in {assetFile.DirectoryName}");
         Jotunn.Logger.LogError($"AtosArrowsJVL is not loaded.");
         return;
       }

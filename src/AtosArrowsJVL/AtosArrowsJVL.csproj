@@ -9,8 +9,8 @@
     <ProjectGuid>{8D64CBD3-0566-4149-8C9C-FFB8BAA863B0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AtosArrows</RootNamespace>
-    <AssemblyName>AtosArrows</AssemblyName>
+    <RootNamespace>AtosArrowsJVL</RootNamespace>
+    <AssemblyName>AtosArrowsJVL</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
