@@ -18,7 +18,7 @@ namespace AtosArrowsJVL
   /// Original Mod: https://www.nexusmods.com/valheim/mods/969
   /// Code is a complete rewrite.
   /// </summary>
-  [BepInPlugin("digitalroot.valheim.mods.atosarrows.jvl", "AtosArrowsJVL", "0.7.2")]
+  [BepInPlugin("digitalroot.valheim.mods.atosarrows.jvl", "AtosArrowsJVL", "0.7.3")]
   [BepInDependency(Main.ModGuid)]
   [BepInIncompatibility("com.bepinex.plugins.atosarrows")]
   public class AtosArrows : BaseUnityPlugin
@@ -92,6 +92,31 @@ namespace AtosArrowsJVL
           {"item_xbow", "Cross Bow"}, {"item_xbow_description", "Ugly XBow"},
         }
       });
+
+      LocalizationManager.Instance.AddLocalization(new LocalizationConfig("Russian")
+      {
+        Translations = {
+          {"item_atoarrow_stone", "Каменная стрела"}, {"item_atoarrow_stone_description", "Грубая стрела с затупленным каменным наконечником. Хорош для того, чтобы трахать что-то на расстоянии."}, 
+          {"item_atoarrow_core", "Затупленная стрела"}, {"item_atoarrow_core_description", "Стрела с тупым бронзовым наконечником. Отлично подходит для удара по черепу на расстоянии."}, 
+          {"item_atoarrow_heavy_core", "Тяжелая Тупая стрела"}, {"item_atoarrow_heavy_core_description", "Крепкая и хорошо сделанная стрела. Гораздо труднее сделать, но наносит гораздо больший урон."}, 
+          {"item_atoarrow_bone", "Костяная стрела"}, {"item_atoarrow_bone_description", "Стрела, сделанная из нескольких костяных фрагментов. Эта уникальная стрела режет и разрывает плоть ваших врагов."}, 
+          {"item_atoarrow_heavy_bone", "Тяжелая Костяная Стрела"}, {"item_atoarrow_heavy_bone_description", "Стрела, сделанная из нескольких костяных фрагментов. Эта уникальная стрела режет и разрывает плоть ваших врагов."}, 
+          {"item_atoarrow_heavy_flint", "Тяжелая Кремневая Стрела"}, {"item_atoarrow_heavy_flint_description", "Крепкая и хорошо сделанная стрела. Гораздо труднее сделать, но наносит гораздо больший урон."}, 
+          {"item_arrow_heavyobsidian", "Тяжелая обсидиановая стрела"}, {"item_arrow_obsidian_heavy_description", "Тяжелая стрела, сделанная с твердым обсидиановым наконечником"}, 
+          {"item_arrow_heavyneedle", "Тяжелая игольчатая стрела"}, {"item_arrow_heavyneedle_description", "Более тяжелая и тяжелая игольная стрела"}, 
+          {"item_arrow_obsidianfire", "Огненная стрела из Обсидиана"}, {"item_arrow_obsidianfire_description", "Мощная стрела, которая воспламенит ваших врагов."}, 
+          {"item_arrow_heavyfire", "Тяжелая огненная Стрела"}, {"item_arrow_heavyfire_description", "Крепкая и хорошо сделанная стрела. Гораздо труднее сделать, но наносит гораздо больший урон."}, 
+          {"item_atoarrow_bigfire", "Взрывающаяся Огненная стрела"}, {"item_atoarrow_bigfire_description", "Стрела, до краев заряженная взрывчаткой. Эта редкая стрела отлично подходит для того, чтобы поджечь все вокруг!"}, 
+          {"item_arrow_heavy_frost", "Тяжелая Морозная Стрела"}, {"item_arrow_frost_heav_description", "Крепкая и хорошо сделанная стрела. Гораздо труднее сделать, но наносит гораздо больший урон."}, 
+          {"item_atoarrow_bigice", "Взрывающаяся Ледяная стрела"}, {"item_atoarrow_bigice_description", "Стрела, до краев наполненная всевозможными магическими холодными предметами, найденными в горах. Эта редкая стрела отлично подходит для замораживания нескольких врагов!"}, 
+          {"item_arrow_heavy_poison", "Тяжелая ядовитая стрела"}, {"item_arrow_poison_heavy_description", "Крепкая и хорошо сделанная стрела. Гораздо труднее сделать, но наносит гораздо больший урон."}, 
+          {"item_atoarrow_aoepoison", "Взрывающаяся Ядовитая Стрела"}, {"item_atoarrow_aoepoison_description", "Стрела, до краев наполненная ядом и сочащаяся. Эта редкая стрела отлично подходит для отравления большой группы врагов."}, 
+          {"item_ato_firebomb", "Огненная бомба"}, {"item_ato_firebomb_description", "Запрос RND от гнома Хьюго"}, 
+          {"item_ato_icebomb", "Ледяная бомба"}, {"item_ato_icebomb_description", "Запрос RND от гнома Хьюго"}, 
+          {"item_xbow", "Арбалет"}, {"item_xbow_description", "Уродливый XBow"},
+        }
+      });
+
     }
 
     private static void RegisterObjects()
