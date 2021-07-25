@@ -35,3 +35,4 @@ jobs:
         run: dotnet build src/${{ env.SLN_FILE_NAME }} -c Release --no-restore
       - name: Test
         run: dotnet test src/${{ env.SLN_FILE_NAME }} -c Release --no-build
+        
