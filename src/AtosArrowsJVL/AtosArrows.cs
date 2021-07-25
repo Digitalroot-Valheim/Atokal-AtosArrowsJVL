@@ -18,13 +18,13 @@ namespace AtosArrowsJVL
   /// Original Mod: https://www.nexusmods.com/valheim/mods/969
   /// Code is a complete rewrite.
   /// </summary>
-  [BepInPlugin("digitalroot.valheim.mods.atosarrows.jvl", "AtosArrowsJVL", "0.7.3")]
+  [BepInPlugin("digitalroot.valheim.mods.atosarrows.jvl", "AtosArrowsJVL", "0.7.4")]
   [BepInDependency(Main.ModGuid)]
   [BepInIncompatibility("com.bepinex.plugins.atosarrows")]
   public class AtosArrows : BaseUnityPlugin
   {
     [UsedImplicitly]
-    private void Awake()
+    public void Awake()
     {
       Jotunn.Logger.LogInfo("AtosArrows.Awake()");
       Config.Bind("General", "NexusID", 1301, "Nexus mod ID for updates");
@@ -42,8 +42,8 @@ namespace AtosArrowsJVL
 #if DEBUG
       foreach (string assetName in assetBundle.GetAllAssetNames())
       {
-				Jotunn.Logger.LogInfo(assetName);
-			}
+        Jotunn.Logger.LogInfo(assetName);
+      }
 #endif     
 			_itemPrefabStoneArrow = assetBundle.LoadAsset<GameObject>("Assets/AtosArrows/Arrows/ArrowStone.prefab");
       _itemPrefabCoreArrow = assetBundle.LoadAsset<GameObject>("Assets/AtosArrows/Arrows/ArrowCore.prefab");
@@ -82,14 +82,14 @@ namespace AtosArrowsJVL
           {"item_arrow_heavyneedle", "Heavy Needle Arrow"}, {"item_arrow_heavyneedle_description", "An heavier and harder hitting Needle Arrow."},
           {"item_arrow_obsidianfire", "Obsidian Fire Arrow"}, {"item_arrow_obsidianfire_description", "An powerful arrow that will ignite your foes."},
           {"item_arrow_heavyfire", "Heavy Fire Arrow"}, {"item_arrow_heavyfire_description", "A sturdy and well made arrow. Much harder to make but does much more damage."},
-          {"item_atoarrow_bigfire", "Exploding Fire Arrow"}, {"item_atoarrow_bigfire_description", "An arrow loaded to the brim with explosvies. This rare arrow is great for setting everything on fire!"},
+          {"item_atoarrow_bigfire", "Exploding Fire Arrow"}, {"item_atoarrow_bigfire_description", "An arrow loaded to the brim with explosives. This rare arrow is great for setting everything on fire!"},
           {"item_arrow_heavy_frost", "Heavy Frost Arrow"}, {"item_arrow_frost_heav_description", "A sturdy and well made arrow. Much harder to make but does much more damage."},
           {"item_atoarrow_bigice", "Exploding Ice Arrow"}, {"item_atoarrow_bigice_description", "An arrow loaded to the brim with all sorts of Magical cold objects found from the mountains. This rare arrow is great for freezing multiple foes!"},
           {"item_arrow_heavy_poison", "Heavy Poison Arrow"}, {"item_arrow_poison_heavy_description", "A sturdy and well made arrow. Much harder to make but does much more damage."},
           {"item_atoarrow_aoepoison", "Exploding Poison Arrow"}, {"item_atoarrow_aoepoison_description", "An arrow loaded to the brim with Poison and Oozes. This rare arrow is great for poisoning a large group of enemies."},
           {"item_ato_firebomb", "Fire Bomb"}, {"item_ato_firebomb_description", "RND request from the Dwarf Hugo."},
           {"item_ato_icebomb", "Ice Bomb"}, {"item_ato_icebomb_description", "RND request from the Dwarf Hugo."},
-          {"item_xbow", "Cross Bow"}, {"item_xbow_description", "Ugly XBow"},
+          {"item_xbow", "Crossbow"}, {"item_xbow_description", "Ugly XBow"},
         }
       });
 
@@ -153,6 +153,7 @@ namespace AtosArrowsJVL
           new RequirementConfig {Item = "Entrails", Amount = 2},
         }
       });
+      bombFire.ItemDrop.m_itemData.m_shared.m_name = "$item_ato_firebomb";
       ItemManager.Instance.AddItem(bombFire);
 
       var bombIce = new CustomItem(_itemPrefabIceBomb, false, new ItemConfig
@@ -170,6 +171,7 @@ namespace AtosArrowsJVL
           new RequirementConfig {Item = "Entrails", Amount = 2},
         }
       });
+      bombIce.ItemDrop.m_itemData.m_shared.m_name = "$item_ato_icebomb";
       ItemManager.Instance.AddItem(bombIce);
     }
 
@@ -189,6 +191,7 @@ namespace AtosArrowsJVL
           new RequirementConfig {Item = "Feathers", Amount = 2},
         }
       });
+      arrow.ItemDrop.m_itemData.m_shared.m_name = "$item_atoarrow_bone";
       ItemManager.Instance.AddItem(arrow);
 
       var heavyArrow = new CustomItem(_itemPrefabHeavyBoneArrow, false, new ItemConfig
@@ -230,6 +233,7 @@ namespace AtosArrowsJVL
           new RequirementConfig {Item = "Feathers", Amount = 2},
         }
       });
+      arrow.ItemDrop.m_itemData.m_shared.m_name = "$item_atoarrow_core";
       ItemManager.Instance.AddItem(arrow);
 
       var heavyArrow = new CustomItem(_itemPrefabHeavyCoreArrow, false, new ItemConfig
@@ -271,6 +275,7 @@ namespace AtosArrowsJVL
           new RequirementConfig {Item = "Feathers", Amount = 2},
         }
       });
+      arrow.ItemDrop.m_itemData.m_shared.m_name = "$item_arrow_obsidianfire";
       ItemManager.Instance.AddItem(arrow);
 
       var heavyArrow = new CustomItem(_itemPrefabHeavyFireArrow, false, new ItemConfig
@@ -310,6 +315,7 @@ namespace AtosArrowsJVL
           new RequirementConfig {Item = "Feathers", Amount = 2},
         }
       });
+      aoeArrow.ItemDrop.m_itemData.m_shared.m_name = "$item_atoarrow_bigfire";
       ItemManager.Instance.AddItem(aoeArrow);
     }
 
@@ -354,6 +360,7 @@ namespace AtosArrowsJVL
         }
       });
 
+      heavyArrow.ItemDrop.m_itemData.m_shared.m_name = "$item_arrow_heavy_frost";
       heavyArrow.ItemDrop.m_itemData.m_shared.m_damages.m_pierce = 32f;
       heavyArrow.ItemDrop.m_itemData.m_shared.m_damages.m_frost = 72f;
       heavyArrow.ItemDrop.m_itemData.m_shared.m_attack.m_projectileVel = 10f;
@@ -395,6 +402,7 @@ namespace AtosArrowsJVL
           new RequirementConfig {Item = "Feathers", Amount = 5},
         }
       });
+      heavyArrow.ItemDrop.m_itemData.m_shared.m_name = "$item_arrow_heavyneedle";
       heavyArrow.ItemDrop.m_itemData.m_shared.m_damages.m_pierce = 72f;
       heavyArrow.ItemDrop.m_itemData.m_shared.m_attack.m_projectileVel = 10f;
       ItemManager.Instance.AddItem(heavyArrow);
@@ -416,6 +424,7 @@ namespace AtosArrowsJVL
           new RequirementConfig {Item = "Feathers", Amount = 5},
         }
       });
+      heavyArrow.ItemDrop.m_itemData.m_shared.m_name = "$item_arrow_heavyobsidian";
       heavyArrow.ItemDrop.m_itemData.m_shared.m_damages.m_pierce = 67f;
       heavyArrow.ItemDrop.m_itemData.m_shared.m_attack.m_projectileVel = 10f;
       ItemManager.Instance.AddItem(heavyArrow);
@@ -438,6 +447,7 @@ namespace AtosArrowsJVL
           new RequirementConfig {Item = "Feathers", Amount = 5},
         }
       });
+      heavyArrow.ItemDrop.m_itemData.m_shared.m_name = "$item_arrow_heavy_poison";
       heavyArrow.ItemDrop.m_itemData.m_shared.m_damages.m_pierce = 32f;
       heavyArrow.ItemDrop.m_itemData.m_shared.m_damages.m_poison = 72f;
       heavyArrow.ItemDrop.m_itemData.m_shared.m_attack.m_projectileVel = 10f;
@@ -458,6 +468,7 @@ namespace AtosArrowsJVL
           new RequirementConfig {Item = "Feathers", Amount = 2},
         }
       });
+      aoeArrow.ItemDrop.m_itemData.m_shared.m_name = "$item_atoarrow_aoepoison";
       ItemManager.Instance.AddItem(aoeArrow);
     }
 
@@ -477,6 +488,7 @@ namespace AtosArrowsJVL
           new RequirementConfig {Item = "Feathers", Amount = 2},
         }
       });
+      arrow.ItemDrop.m_itemData.m_shared.m_name = "$item_atoarrow_stone";
       ItemManager.Instance.AddItem(arrow);
     }
 
@@ -498,6 +510,7 @@ namespace AtosArrowsJVL
           new RequirementConfig {Item = "LinenThread", Amount = 20, AmountPerLevel = 2},
         }
       });
+      xbow.ItemDrop.m_itemData.m_shared.m_name = "$item_xbow";
       xbow.ItemDrop.m_itemData.m_shared.m_attackForce = 0f;
       xbow.ItemDrop.m_itemData.m_shared.m_attack.m_projectileVel = 65f;
       xbow.ItemDrop.m_itemData.m_shared.m_maxDurability = 600f;
