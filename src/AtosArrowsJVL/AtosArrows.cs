@@ -1,11 +1,11 @@
 ﻿using BepInEx;
+using BepInEx.Configuration;
 using JetBrains.Annotations;
 using Jotunn;
 using Jotunn.Configs;
 using Jotunn.Entities;
 using Jotunn.Managers;
 using Jotunn.Utils;
-using System.IO;
 using UnityEngine;
 
 namespace AtosArrowsJVL
@@ -18,51 +18,57 @@ namespace AtosArrowsJVL
   /// Original Mod: https://www.nexusmods.com/valheim/mods/969
   /// Code is a complete rewrite.
   /// </summary>
-  [BepInPlugin("digitalroot.valheim.mods.atosarrows.jvl", "AtosArrowsJVL", "0.7.4")]
+  [BepInPlugin(Guid, Name, Version)]
   [BepInDependency(Main.ModGuid)]
   [BepInIncompatibility("com.bepinex.plugins.atosarrows")]
   public class AtosArrows : BaseUnityPlugin
   {
+    public const string Version = "0.7.5";
+    private const string Name = "AtosArrowsJVL";
+    public const string Guid = "digitalroot.valheim.mods.atosarrows.jvl";
+    public const string Namespace = "AtosArrowsJVL";
+    public static AtosArrows Instance;
+    private AssetBundle _assetBundle;
+
+    public static ConfigEntry<int> NexusId;
+
+    public AtosArrows()
+    {
+      Instance = this;
+      NexusId = Config.Bind("General", "NexusID", 1301, new ConfigDescription("Nexus mod ID for updates", null, new ConfigurationManagerAttributes { IsAdminOnly = false, Browsable = false, ReadOnly = true }));
+    }
+
     [UsedImplicitly]
     public void Awake()
     {
       Jotunn.Logger.LogInfo("AtosArrows.Awake()");
-      Config.Bind("General", "NexusID", 1301, "Nexus mod ID for updates");
-      var assetFile = new FileInfo(Path.Combine(BepInEx.Paths.PluginPath, "AtosArrowsJVL", "atoarrows"));
-
-      if (!assetFile.Exists)
-      {
-        Jotunn.Logger.LogError($"Unable to find asset file 'atoarrows', please make sure 'atoarrows' and 'AtosArrowsJVL.dll' are in {assetFile.DirectoryName}");
-        Jotunn.Logger.LogError($"AtosArrowsJVL is not loaded.");
-        return;
-      }
-
-      AssetBundle assetBundle = AssetUtils.LoadAssetBundle(assetFile.FullName);
+      _assetBundle = AssetUtils.LoadAssetBundleFromResources("atoarrows", typeof(AtosArrows).Assembly);
 
 #if DEBUG
-      foreach (var assetName in assetBundle.GetAllAssetNames())
+      foreach (var assetName in _assetBundle.GetAllAssetNames())
       {
         Jotunn.Logger.LogInfo(assetName);
       }
 #endif
-      _itemPrefabStoneArrow = assetBundle.LoadAsset<GameObject>("Assets/AtosArrows/Arrows/ArrowStone.prefab");
-      _itemPrefabCoreArrow = assetBundle.LoadAsset<GameObject>("Assets/AtosArrows/Arrows/ArrowCore.prefab");
-      _itemPrefabBoneArrow = assetBundle.LoadAsset<GameObject>("Assets/AtosArrows/Arrows/ArrowBone.prefab");
-      _itemPrefabHeavyCoreArrow = assetBundle.LoadAsset<GameObject>("Assets/AtosArrows/Arrows/Heavy/ArrowHeavyCore.prefab");
-      _itemPrefabHeavyFlintArrow = assetBundle.LoadAsset<GameObject>("Assets/AtosArrows/Arrows/Heavy/ArrowHeavyFlint.prefab");
-      _itemPrefabHeavyBoneArrow = assetBundle.LoadAsset<GameObject>("Assets/AtosArrows/Arrows/Heavy/ArrowHeavyBone.prefab");
-      _itemPrefabHeavyObsidianArrow = assetBundle.LoadAsset<GameObject>("Assets/AtosArrows/Arrows/Heavy/ArrowHeavyObsidian.prefab");
-      _itemPrefabHeavyNeedleArrow = assetBundle.LoadAsset<GameObject>("Assets/AtosArrows/Arrows/Heavy/ArrowHeavyNeedle.prefab");
-      _itemPrefabBigFireArrow = assetBundle.LoadAsset<GameObject>("Assets/AtosArrows/Arrows/ArrowObsidianFire.prefab");
-      _itemPrefabHeavyFireArrow = assetBundle.LoadAsset<GameObject>("Assets/AtosArrows/Arrows/Heavy/ArrowHeavyFire.prefab");
-      _itemPrefabHeavyIceArrow = assetBundle.LoadAsset<GameObject>("Assets/AtosArrows/Arrows/Heavy/ArrowHeavyFrost.prefab");
-      _itemPrefabHeavyPoisonArrow = assetBundle.LoadAsset<GameObject>("Assets/AtosArrows/Arrows/Heavy/ArrowHeavyPoison.prefab");
-      _itemPrefabFireBomb = assetBundle.LoadAsset<GameObject>("Assets/AtosArrows/Items/FireBomb.prefab");
-      _itemPrefabIceBomb = assetBundle.LoadAsset<GameObject>("Assets/AtosArrows/Items/IceBomb.prefab");
-      _itemPrefabFireAoeArrow = assetBundle.LoadAsset<GameObject>("Assets/AtosArrows/Arrows/ArrowFireaoe.prefab");
-      _itemPrefabIceAoeArrow = assetBundle.LoadAsset<GameObject>("Assets/AtosArrows/Arrows/ArrowIceaoe.prefab");
-      _itemPrefabPoisonAoeArrow = assetBundle.LoadAsset<GameObject>("Assets/AtosArrows/Arrows/ArrowPoisonaoe.prefab");
-      _itemPrefabXBow = assetBundle.LoadAsset<GameObject>("Assets/AtosArrows/Bows/Xbow.prefab");
+
+      _itemPrefabStoneArrow = _assetBundle.LoadAsset<GameObject>("assets/atosarrows/arrows/arrowstone.prefab");
+      _itemPrefabCoreArrow = _assetBundle.LoadAsset<GameObject>("assets/atosarrows/arrows/arrowcore.prefab");
+      _itemPrefabBoneArrow = _assetBundle.LoadAsset<GameObject>("assets/atosarrows/arrows/arrowbone.prefab");
+      _itemPrefabHeavyCoreArrow = _assetBundle.LoadAsset<GameObject>("assets/atosarrows/arrows/heavy/arrowheavycore.prefab");
+      _itemPrefabHeavyFlintArrow = _assetBundle.LoadAsset<GameObject>("assets/atosarrows/arrows/heavy/arrowheavyflint.prefab");
+      _itemPrefabHeavyBoneArrow = _assetBundle.LoadAsset<GameObject>("assets/atosarrows/arrows/heavy/arrowheavybone.prefab");
+      _itemPrefabHeavyObsidianArrow = _assetBundle.LoadAsset<GameObject>("assets/atosarrows/arrows/heavy/arrowheavyobsidian.prefab");
+      _itemPrefabHeavyNeedleArrow = _assetBundle.LoadAsset<GameObject>("assets/atosarrows/arrows/heavy/arrowheavyneedle.prefab");
+      _itemPrefabBigFireArrow = _assetBundle.LoadAsset<GameObject>("assets/atosarrows/arrows/arrowobsidianfire.prefab");
+      _itemPrefabHeavyFireArrow = _assetBundle.LoadAsset<GameObject>("assets/atosarrows/arrows/heavy/arrowheavyfire.prefab");
+      _itemPrefabHeavyIceArrow = _assetBundle.LoadAsset<GameObject>("assets/atosarrows/arrows/heavy/arrowheavyfrost.prefab");
+      _itemPrefabHeavyPoisonArrow = _assetBundle.LoadAsset<GameObject>("assets/atosarrows/arrows/heavy/arrowheavypoison.prefab");
+      _itemPrefabFireBomb = _assetBundle.LoadAsset<GameObject>("assets/atosarrows/items/firebomb.prefab");
+      _itemPrefabIceBomb = _assetBundle.LoadAsset<GameObject>("assets/atosarrows/items/icebomb.prefab");
+      _itemPrefabFireAoeArrow = _assetBundle.LoadAsset<GameObject>("assets/atosarrows/arrows/arrowfireaoe.prefab");
+      _itemPrefabIceAoeArrow = _assetBundle.LoadAsset<GameObject>("assets/atosarrows/arrows/arrowiceaoe.prefab");
+      _itemPrefabPoisonAoeArrow = _assetBundle.LoadAsset<GameObject>("assets/atosarrows/arrows/arrowpoisonaoe.prefab");
+      _itemPrefabXBow = _assetBundle.LoadAsset<GameObject>("assets/atosarrows/bows/xbow.prefab");
       RegisterObjects();
     }
 
