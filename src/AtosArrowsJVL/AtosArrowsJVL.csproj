@@ -42,9 +42,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="atoarrows">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\atoarrows" />
     <None Include="Assets\Translations\English\translations.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
