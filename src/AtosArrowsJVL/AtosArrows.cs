@@ -23,7 +23,7 @@ namespace AtosArrowsJVL
   [BepInIncompatibility("com.bepinex.plugins.atosarrows")]
   public class AtosArrows : BaseUnityPlugin
   {
-    public const string Version = "0.7.5";
+    public const string Version = "0.7.6";
     private const string Name = "AtosArrowsJVL";
     public const string Guid = "digitalroot.valheim.mods.atosarrows.jvl";
     public const string Namespace = "AtosArrowsJVL";
