@@ -1,7 +1,6 @@
 ﻿using BepInEx;
 using BepInEx.Configuration;
 using JetBrains.Annotations;
-using Jotunn;
 using Jotunn.Configs;
 using Jotunn.Entities;
 using Jotunn.Managers;
@@ -19,11 +18,12 @@ namespace AtosArrowsJVL
   /// Code is a complete rewrite.
   /// </summary>
   [BepInPlugin(Guid, Name, Version)]
-  [BepInDependency(Main.ModGuid)]
+  [BepInDependency(Jotunn.Main.ModGuid, "2.3.3")]
+  [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.Minor)]
   [BepInIncompatibility("com.bepinex.plugins.atosarrows")]
   public class AtosArrows : BaseUnityPlugin
   {
-    public const string Version = "0.7.6";
+    public const string Version = "1.0.0";
     private const string Name = "AtosArrowsJVL";
     public const string Guid = "digitalroot.valheim.mods.atosarrows.jvl";
     public const string Namespace = "AtosArrowsJVL";
@@ -122,6 +122,7 @@ namespace AtosArrowsJVL
         }
       });
       arrow.ItemDrop.m_itemData.m_shared.m_name = "$item_atoarrow_bone";
+      arrow.ItemDrop.m_itemData.m_shared.m_ammoType = "$ammo_arrows";
       ItemManager.Instance.AddItem(arrow);
 
       var heavyArrow = new CustomItem(_itemPrefabHeavyBoneArrow, false, new ItemConfig
@@ -133,6 +134,7 @@ namespace AtosArrowsJVL
       });
       heavyArrow.ItemDrop.m_itemData.m_shared.m_description = "$item_atoarrow_heavy_bone_description";
       heavyArrow.ItemDrop.m_itemData.m_shared.m_name = "$item_atoarrow_heavy_bone";
+      heavyArrow.ItemDrop.m_itemData.m_shared.m_ammoType = "$ammo_arrows";
       heavyArrow.ItemDrop.m_itemData.m_shared.m_damages.m_pierce = 32f;
       heavyArrow.ItemDrop.m_itemData.m_shared.m_damages.m_slash = 32f;
       heavyArrow.ItemDrop.m_itemData.m_shared.m_attack.m_projectileVel = 10f;
@@ -149,6 +151,7 @@ namespace AtosArrowsJVL
         }
       });
       arrow.ItemDrop.m_itemData.m_shared.m_name = "$item_atoarrow_core";
+      arrow.ItemDrop.m_itemData.m_shared.m_ammoType = "$ammo_arrows";
       ItemManager.Instance.AddItem(arrow);
 
       var heavyArrow = new CustomItem(_itemPrefabHeavyCoreArrow, false, new ItemConfig
@@ -160,6 +163,7 @@ namespace AtosArrowsJVL
       });
       heavyArrow.ItemDrop.m_itemData.m_shared.m_description = "$item_atoarrow_heavy_core_description";
       heavyArrow.ItemDrop.m_itemData.m_shared.m_name = "$item_atoarrow_heavy_core";
+      heavyArrow.ItemDrop.m_itemData.m_shared.m_ammoType = "$ammo_arrows";
       heavyArrow.ItemDrop.m_itemData.m_shared.m_damages.m_blunt = 64f;
       heavyArrow.ItemDrop.m_itemData.m_shared.m_attack.m_projectileVel = 10f;
       ItemManager.Instance.AddItem(heavyArrow);
@@ -175,6 +179,7 @@ namespace AtosArrowsJVL
         }
       });
       arrow.ItemDrop.m_itemData.m_shared.m_name = "$item_arrow_obsidianfire";
+      arrow.ItemDrop.m_itemData.m_shared.m_ammoType = "$ammo_arrows";
       ItemManager.Instance.AddItem(arrow);
 
       var heavyArrow = new CustomItem(_itemPrefabHeavyFireArrow, false, new ItemConfig
@@ -186,6 +191,7 @@ namespace AtosArrowsJVL
       });
       heavyArrow.ItemDrop.m_itemData.m_shared.m_description = "$item_arrow_heavyfire_description";
       heavyArrow.ItemDrop.m_itemData.m_shared.m_name = "$item_arrow_heavyfire";
+      heavyArrow.ItemDrop.m_itemData.m_shared.m_ammoType = "$ammo_arrows";
       heavyArrow.ItemDrop.m_itemData.m_shared.m_damages.m_pierce = 32f;
       heavyArrow.ItemDrop.m_itemData.m_shared.m_damages.m_fire = 72f;
       heavyArrow.ItemDrop.m_itemData.m_shared.m_attack.m_projectileVel = 10f;
@@ -199,6 +205,7 @@ namespace AtosArrowsJVL
         }
       });
       aoeArrow.ItemDrop.m_itemData.m_shared.m_name = "$item_atoarrow_bigfire";
+      aoeArrow.ItemDrop.m_itemData.m_shared.m_ammoType = "$ammo_arrows";
       ItemManager.Instance.AddItem(aoeArrow);
     }
 
@@ -213,6 +220,7 @@ namespace AtosArrowsJVL
       });
       heavyArrow.ItemDrop.m_itemData.m_shared.m_description = "$item_atoarrow_heavy_flint_description";
       heavyArrow.ItemDrop.m_itemData.m_shared.m_name = "$item_atoarrow_heavy_flint";
+      heavyArrow.ItemDrop.m_itemData.m_shared.m_ammoType = "$ammo_arrows";
       heavyArrow.ItemDrop.m_itemData.m_shared.m_damages.m_pierce = 47f;
       heavyArrow.ItemDrop.m_itemData.m_shared.m_attack.m_projectileVel = 10f;
       ItemManager.Instance.AddItem(heavyArrow);
@@ -229,6 +237,7 @@ namespace AtosArrowsJVL
       });
 
       heavyArrow.ItemDrop.m_itemData.m_shared.m_name = "$item_arrow_heavy_frost";
+      heavyArrow.ItemDrop.m_itemData.m_shared.m_ammoType = "$ammo_arrows";
       heavyArrow.ItemDrop.m_itemData.m_shared.m_damages.m_pierce = 32f;
       heavyArrow.ItemDrop.m_itemData.m_shared.m_damages.m_frost = 72f;
       heavyArrow.ItemDrop.m_itemData.m_shared.m_attack.m_projectileVel = 10f;
@@ -243,6 +252,7 @@ namespace AtosArrowsJVL
       });
       aoeArrow.ItemDrop.m_itemData.m_shared.m_description = "$item_atoarrow_bigice_description";
       aoeArrow.ItemDrop.m_itemData.m_shared.m_name = "$item_atoarrow_bigice";
+      aoeArrow.ItemDrop.m_itemData.m_shared.m_ammoType = "$ammo_arrows";
       ItemManager.Instance.AddItem(aoeArrow);
     }
 
@@ -256,6 +266,7 @@ namespace AtosArrowsJVL
         }
       });
       heavyArrow.ItemDrop.m_itemData.m_shared.m_name = "$item_arrow_heavyneedle";
+      heavyArrow.ItemDrop.m_itemData.m_shared.m_ammoType = "$ammo_arrows";
       heavyArrow.ItemDrop.m_itemData.m_shared.m_damages.m_pierce = 72f;
       heavyArrow.ItemDrop.m_itemData.m_shared.m_attack.m_projectileVel = 10f;
       ItemManager.Instance.AddItem(heavyArrow);
@@ -273,6 +284,7 @@ namespace AtosArrowsJVL
       heavyArrow.ItemDrop.m_itemData.m_shared.m_name = "$item_arrow_heavyobsidian";
       heavyArrow.ItemDrop.m_itemData.m_shared.m_damages.m_pierce = 67f;
       heavyArrow.ItemDrop.m_itemData.m_shared.m_attack.m_projectileVel = 10f;
+      heavyArrow.ItemDrop.m_itemData.m_shared.m_ammoType = "$ammo_arrows";
       ItemManager.Instance.AddItem(heavyArrow);
     }
 
@@ -289,6 +301,7 @@ namespace AtosArrowsJVL
       heavyArrow.ItemDrop.m_itemData.m_shared.m_damages.m_pierce = 32f;
       heavyArrow.ItemDrop.m_itemData.m_shared.m_damages.m_poison = 72f;
       heavyArrow.ItemDrop.m_itemData.m_shared.m_attack.m_projectileVel = 10f;
+      heavyArrow.ItemDrop.m_itemData.m_shared.m_ammoType = "$ammo_arrows";
       ItemManager.Instance.AddItem(heavyArrow);
 
       var aoeArrow = new CustomItem(_itemPrefabPoisonAoeArrow, false, new ItemConfig
@@ -299,6 +312,7 @@ namespace AtosArrowsJVL
         }
       });
       aoeArrow.ItemDrop.m_itemData.m_shared.m_name = "$item_atoarrow_aoepoison";
+      aoeArrow.ItemDrop.m_itemData.m_shared.m_ammoType = "$ammo_arrows";
       ItemManager.Instance.AddItem(aoeArrow);
     }
 
@@ -312,6 +326,7 @@ namespace AtosArrowsJVL
         }
       });
       arrow.ItemDrop.m_itemData.m_shared.m_name = "$item_atoarrow_stone";
+      arrow.ItemDrop.m_itemData.m_shared.m_ammoType = "$ammo_arrows";
       ItemManager.Instance.AddItem(arrow);
     }
 
@@ -330,6 +345,7 @@ namespace AtosArrowsJVL
       xbow.ItemDrop.m_itemData.m_shared.m_maxDurability = 600f;
       xbow.ItemDrop.m_itemData.m_shared.m_blockPower = 10f;
       xbow.ItemDrop.m_itemData.m_shared.m_maxStackSize = 1;
+      xbow.ItemDrop.m_itemData.m_shared.m_ammoType = "$ammo_arrows";
       ItemManager.Instance.AddItem(xbow);
     }
 
