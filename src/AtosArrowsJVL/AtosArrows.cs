@@ -18,7 +18,7 @@ namespace AtosArrowsJVL
   /// Code is a complete rewrite.
   /// </summary>
   [BepInPlugin(Guid, Name, Version)]
-  [BepInDependency(Jotunn.Main.ModGuid, "2.3.3")]
+  [BepInDependency(Jotunn.Main.ModGuid, "2.9.0")]
   [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.Minor)]
   [BepInIncompatibility("com.bepinex.plugins.atosarrows")]
   public class AtosArrows : BaseUnityPlugin
@@ -39,6 +39,7 @@ namespace AtosArrowsJVL
     }
 
     [UsedImplicitly]
+    // ReSharper disable once InconsistentNaming
     public void Awake()
     {
       Jotunn.Logger.LogInfo("AtosArrows.Awake()");
@@ -69,10 +70,10 @@ namespace AtosArrowsJVL
       _itemPrefabIceAoeArrow = _assetBundle.LoadAsset<GameObject>("assets/atosarrows/arrows/arrowiceaoe.prefab");
       _itemPrefabPoisonAoeArrow = _assetBundle.LoadAsset<GameObject>("assets/atosarrows/arrows/arrowpoisonaoe.prefab");
       _itemPrefabXBow = _assetBundle.LoadAsset<GameObject>("assets/atosarrows/bows/xbow.prefab");
-      RegisterObjects();
+      AddRegisterObjects();
     }
 
-    private static void RegisterObjects()
+    private static void AddRegisterObjects()
     {
       Jotunn.Logger.LogInfo("AtosArrows.RegisterObjects()");
 

@@ -1,4 +1,4 @@
-﻿[![Build](https://github.com/Digitalroot-Valheim/Atokal-AtosArrowsJVL/actions/workflows/builder.yml/badge.svg)](https://github.com/Digitalroot-Valheim/Atokal-AtosArrowsJVL/actions/workflows/builder.yml)
+[![Build](https://github.com/Digitalroot-Valheim/Atokal-AtosArrowsJVL/actions/workflows/builder.yml/badge.svg)](https://github.com/Digitalroot-Valheim/Atokal-AtosArrowsJVL/actions/workflows/builder.yml)
 [![Release Drafter](https://github.com/Digitalroot-Valheim/Atokal-AtosArrowsJVL/actions/workflows/drafter.yml/badge.svg)](https://github.com/Digitalroot-Valheim/Atokal-AtosArrowsJVL/actions/workflows/drafter.yml)
 
 # Summary

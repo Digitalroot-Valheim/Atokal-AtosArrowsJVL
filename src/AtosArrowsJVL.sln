@@ -1,15 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31112.23
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AtosArrowsJVL", "AtosArrowsJVL\AtosArrowsJVL.csproj", "{8D64CBD3-0566-4149-8C9C-FFB8BAA863B0}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B273A3A6-CCA2-4CF3-8C85-C87BD298191C}"
 	ProjectSection(SolutionItems) = preProject
 		..\.gitignore = ..\.gitignore
 		..\LICENSE = ..\LICENSE
-		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "externals", "externals", "{620B0187-D26F-4DE5-BD0A-714D2F7E5373}"
@@ -19,26 +16,29 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "externals", "externals", "{
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{21A28A06-99CB-4A2E-9425-B6F9937D479F}"
-	ProjectSection(SolutionItems) = preProject
-		..\.github\release-drafter.yml = ..\.github\release-drafter.yml
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{12848C40-5C21-47FA-9660-7D9922381505}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AtosArrowsJVL", "AtosArrowsJVL\AtosArrowsJVL.csproj", "{4A3BD60A-3E8F-4CA9-A88F-B87DFCCA28BD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{6799A244-4862-4FD6-B27D-D743542803AD}"
 	ProjectSection(SolutionItems) = preProject
-		..\.github\workflows\builder.yml = ..\.github\workflows\builder.yml
-		..\.github\workflows\drafter.yml = ..\.github\workflows\drafter.yml
+		..\docs\README.md = ..\docs\README.md
 	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		DebugNoDeploy|Any CPU = DebugNoDeploy|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8D64CBD3-0566-4149-8C9C-FFB8BAA863B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8D64CBD3-0566-4149-8C9C-FFB8BAA863B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8D64CBD3-0566-4149-8C9C-FFB8BAA863B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8D64CBD3-0566-4149-8C9C-FFB8BAA863B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A3BD60A-3E8F-4CA9-A88F-B87DFCCA28BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A3BD60A-3E8F-4CA9-A88F-B87DFCCA28BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A3BD60A-3E8F-4CA9-A88F-B87DFCCA28BD}.DebugNoDeploy|Any CPU.ActiveCfg = DebugNoDeploy|Any CPU
+		{4A3BD60A-3E8F-4CA9-A88F-B87DFCCA28BD}.DebugNoDeploy|Any CPU.Build.0 = DebugNoDeploy|Any CPU
+		{4A3BD60A-3E8F-4CA9-A88F-B87DFCCA28BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A3BD60A-3E8F-4CA9-A88F-B87DFCCA28BD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -47,6 +47,7 @@ Global
 		{620B0187-D26F-4DE5-BD0A-714D2F7E5373} = {B273A3A6-CCA2-4CF3-8C85-C87BD298191C}
 		{21A28A06-99CB-4A2E-9425-B6F9937D479F} = {B273A3A6-CCA2-4CF3-8C85-C87BD298191C}
 		{12848C40-5C21-47FA-9660-7D9922381505} = {21A28A06-99CB-4A2E-9425-B6F9937D479F}
+		{6799A244-4862-4FD6-B27D-D743542803AD} = {B273A3A6-CCA2-4CF3-8C85-C87BD298191C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {205232EB-96BF-418C-8D3E-33234BF45774}
