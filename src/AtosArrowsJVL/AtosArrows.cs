@@ -18,12 +18,12 @@ namespace AtosArrowsJVL
   /// Code is a complete rewrite.
   /// </summary>
   [BepInPlugin(Guid, Name, Version)]
-  [BepInDependency(Jotunn.Main.ModGuid, "2.9.0")]
+  [BepInDependency(Jotunn.Main.ModGuid, "2.10.0")]
   [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.Minor)]
   [BepInIncompatibility("com.bepinex.plugins.atosarrows")]
   public class AtosArrows : BaseUnityPlugin
   {
-    public const string Version = "1.0.0";
+    public const string Version = "1.0.2";
     private const string Name = "AtosArrowsJVL";
     public const string Guid = "digitalroot.valheim.mods.atosarrows.jvl";
     public const string Namespace = "AtosArrowsJVL";

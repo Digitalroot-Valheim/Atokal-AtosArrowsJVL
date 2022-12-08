@@ -18,6 +18,11 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{21A28A06-99CB-4A2E-9425-B6F9937D479F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{12848C40-5C21-47FA-9660-7D9922381505}"
+	ProjectSection(SolutionItems) = preProject
+		..\.github\workflows\discord.yml = ..\.github\workflows\discord.yml
+		..\.github\workflows\nuget.autoupdate.yml = ..\.github\workflows\nuget.autoupdate.yml
+		..\.github\workflows\nuget.release.yml = ..\.github\workflows\nuget.release.yml
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AtosArrowsJVL", "AtosArrowsJVL\AtosArrowsJVL.csproj", "{4A3BD60A-3E8F-4CA9-A88F-B87DFCCA28BD}"
 EndProject
