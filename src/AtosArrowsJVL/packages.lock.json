@@ -14,9 +14,9 @@
       },
       "Digitalroot.Valheim.Build.Targets": {
         "type": "Direct",
-        "requested": "[1.0.11, )",
-        "resolved": "1.0.11",
-        "contentHash": "94VOxPpDZ32SjMxknot88h6pOrFPtWq/BhBJQEvNiHxvQceC8Q0Pi4wXacl6C7gRSQq59gMMKxjg62m++duMsw=="
+        "requested": "[1.0.21, )",
+        "resolved": "1.0.21",
+        "contentHash": "8mErk3UFjy80d9IlTjXNsofT7YfKLz897YE10ieB/SHNbBorzwVCPYRGsmuaNH8HyqjKQH3KnK4gDwDMBEC+DQ=="
       },
       "Digitalroot.Valheim.Common.AssemblyInfo": {
         "type": "Direct",
