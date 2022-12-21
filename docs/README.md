@@ -1,6 +1,3 @@
-[![Build](https://github.com/Digitalroot-Valheim/Atokal-AtosArrowsJVL/actions/workflows/builder.yml/badge.svg)](https://github.com/Digitalroot-Valheim/Atokal-AtosArrowsJVL/actions/workflows/builder.yml)
-[![Release Drafter](https://github.com/Digitalroot-Valheim/Atokal-AtosArrowsJVL/actions/workflows/drafter.yml/badge.svg)](https://github.com/Digitalroot-Valheim/Atokal-AtosArrowsJVL/actions/workflows/drafter.yml)
-
 # Summary
 This is a port of <a href="https://www.nexusmods.com/valheim/mods/969">AtosArrows</a> to JVL   
 PR: https://github.com/Atokal/AtosArrows/pull/3   
