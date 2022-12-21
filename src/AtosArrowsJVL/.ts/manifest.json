@@ -1,12 +1,12 @@
 {
   "$schema": "https://raw.githubusercontent.com/Digitalroot-Valheim/Digitalroot.Valheim.Common.Interfaces/main/src/json/tsio-manifest.json",
-  "name": "AtosArrowsJVL",
+  "name": "Atos_Arrows_JVL",
   "author": "Digitalroot",
   "description": "This is a port of AtosArrows to JVL.",
   "version_number": "%VERSION_NUMBER%",
   "dependencies": [
     "denikson-BepInExPack_Valheim-5.4.1901",
-    "ValheimModding-Jotunn-2.10.0"
+    "ValheimModding-Jotunn-2.10.1"
   ],
   "website_url": "https://github.com/Digitalroot-Valheim/Atokal-AtosArrowsJVL"
 }
