@@ -21,7 +21,7 @@ namespace AtosArrowsJVL
   /// Code is a complete rewrite.
   /// </summary>
   [BepInPlugin(Guid, Name, Version)]
-  [BepInDependency(Jotunn.Main.ModGuid, "2.10.0")]
+  [BepInDependency(Jotunn.Main.ModGuid)]
   [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.Minor)]
   [BepInIncompatibility("com.bepinex.plugins.atosarrows")]
   public partial class Main : BaseUnityPlugin, ITraceableLogging
