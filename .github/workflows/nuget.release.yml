@@ -36,4 +36,4 @@ jobs:
       ts-name: Atos_Arrows_JVL
       ts-description: "This is a port of AtosArrows to JVL."
       ts-categories: "client-side server-side gear" #https://thunderstore.io/api/experimental/community/valheim/category/
-      ts-dependencies: denikson-BepInExPack_Valheim@5.4.2105 ValheimModding-Jotunn@2.12.1
+      ts-dependencies: denikson-BepInExPack_Valheim@5.4.2105 ValheimModding-Jotunn@2.12.6

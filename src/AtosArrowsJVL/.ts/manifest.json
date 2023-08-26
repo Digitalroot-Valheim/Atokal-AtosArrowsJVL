@@ -5,8 +5,8 @@
   "description": "This is a port of AtosArrows to JVL.",
   "version_number": "%VERSION_NUMBER%",
   "dependencies": [
-    "denikson-BepInExPack_Valheim-5.4.1901",
-    "ValheimModding-Jotunn-2.10.1"
+    "denikson-BepInExPack_Valheim-5.4.2105",
+    "ValheimModding-Jotunn-2.12.6"
   ],
   "website_url": "https://github.com/Digitalroot-Valheim/Atokal-AtosArrowsJVL"
 }
